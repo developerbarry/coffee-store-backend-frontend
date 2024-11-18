@@ -6,14 +6,28 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from './components/Root.jsx';
+import AddCoffee from './components/Pages/AddCoffee.jsx';
+import Home from './components/Pages/Home.jsx';
 // import Home from './components/Pages/Home.jsx';
 
 const router = createBrowserRouter(
   [
     {
       path: '/',
-      element: <Root />
-    }
+      element: <Root />,
+      children: [
+        {
+          index: true,
+          element: <Home />
+        },
+        {
+          path: 'add-coffee',
+          element: <AddCoffee />
+        }
+      ]
+    },
+
+
   ],
   {
     future: {

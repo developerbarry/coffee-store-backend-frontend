@@ -1,13 +1,15 @@
-// import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "./Layouts/Header";
-import Home from "./Pages/Home";
 
 const Root = () => {
     return (
-        <div>
+        <main>
             <Header />
-            <Home />
-        </div>
+            {/* <Home /> */}
+            <div>
+                <Outlet />
+            </div>
+        </main>
     );
 };
 
