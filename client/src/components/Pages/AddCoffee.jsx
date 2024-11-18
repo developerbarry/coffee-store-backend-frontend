@@ -14,6 +14,8 @@ const AddCoffee = () => {
         const newCoffee = {coffeName, chef, supplier, taste, category, details, photoURL};
         console.log(newCoffee)
 
+        
+
     }
 
     
@@ -65,7 +67,6 @@ const AddCoffee = () => {
 
                                         <input type="submit" value='Add Coffee' className="shadow-sm bg-[#D2B48C] border border-[#331A15] text-lg font-rancho text-[#331A15] sm:text-2xl rounded font-normal cursor-pointer focus:ring-cyan-600 focus:border-[#1B1A1ACC] block w-full p-2.5" />
                                     </div>
-
                                 </div>
                             </form>
                         </div>
