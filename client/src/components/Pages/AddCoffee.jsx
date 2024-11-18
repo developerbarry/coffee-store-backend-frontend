@@ -11,14 +11,24 @@ const AddCoffee = () => {
         const category = form.category.value;
         const details = form.details.value;
         const photoURL = form.photo.value;
-        const newCoffee = {coffeName, chef, supplier, taste, category, details, photoURL};
+        const newCoffee = { coffeName, chef, supplier, taste, category, details, photoURL };
         console.log(newCoffee)
 
-        
+        fetch('http://localhost:5000/coffees', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
 
     }
 
-    
+
     return (
         <section>
             <div className="md:px-56 sm:px-10">
