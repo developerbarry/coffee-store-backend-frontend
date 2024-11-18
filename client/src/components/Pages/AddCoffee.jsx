@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
 
@@ -24,6 +25,14 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee Successfully Added',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
             })
 
     }
