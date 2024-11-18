@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import CoffeeCard from "../Layouts/CoffeeCard";
 
 const Home = () => {
+
+    const [coffees, setCoffees] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/coffees')
+            .then(res => res.json())
+            .then(data => setCoffees(data))
+    }, [])
+
+
     return (
         <>
             <section>
@@ -10,10 +21,17 @@ const Home = () => {
                 </div>
             </section>
             <section>
-                <div className="px-4 py-2 sm:px-36">
-                <div className="grid grid-cols-2 gap-5">
-                    <CoffeeCard />
-                </div>
+                <div className="px-4 py-10 sm:px-36">
+                    <div>
+                        <div>
+                            <h1>Coffees</h1>
+                        </div>
+                        <div className="grid grid-cols-2 gap-5">
+                            {
+                                coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee} />)
+                            }
+                        </div>
+                    </div>
                 </div>
             </section>
         </>
