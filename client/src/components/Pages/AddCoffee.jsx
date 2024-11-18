@@ -1,5 +1,22 @@
 
 const AddCoffee = () => {
+
+    const handleSubmitAddCoffee = event => {
+        event.preventDefault()
+        const form = event.target;
+        const coffeName = form.coffeeName.value;
+        const chef = form.chef.value;
+        const supplier = form.supplier.value;
+        const taste = form.taste.value;
+        const category = form.category.value;
+        const details = form.details.value;
+        const photoURL = form.photo.value;
+        const newCoffee = {coffeName, chef, supplier, taste, category, details, photoURL};
+        console.log(newCoffee)
+
+    }
+
+    
     return (
         <section>
             <div className="md:px-56 sm:px-10">
@@ -14,11 +31,11 @@ const AddCoffee = () => {
                             <p className="font-raleway font-normal text-lg text-[#1B1A1AB3]">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                         </div>
                         <div className="p-6 space-y-6 mt-4">
-                            <form>
+                            <form onSubmit={handleSubmitAddCoffee}>
                                 <div className="grid grid-cols-6 gap-6">
                                     <div className="col-span-6 sm:col-span-3">
                                         <label htmlFor="coffee-name" className="text-sm font-medium font-rancho font-semibold text-xl text-[#1B1A1ACC] block mb-2">Name</label>
-                                        <input type="text" name="coffee-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-[#1B1A1ACC] block w-full p-2.5 font-raleway" placeholder="Enter coffee name" required="" />
+                                        <input type="text" name="coffeeName" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-[#1B1A1ACC] block w-full p-2.5 font-raleway" placeholder="Enter coffee name" required="" />
                                     </div>
                                     <div className="col-span-6 sm:col-span-3">
                                         <label htmlFor="chef" className="text-sm font-medium font-rancho font-semibold text-xl text-[#1B1A1ACC] block mb-2">Chef</label>
