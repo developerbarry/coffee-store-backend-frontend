@@ -27,11 +27,18 @@ async function run() {
     const database = client.db("coffeeDB");
     const coffee = database.collection("coffee");
 
+    app.get('/coffees', async (req, res) => {
+      const cursor = coffee.find();
+      const result = await cursor.toArray();
+      res.send(result)
+    })
+
     app.post('/coffees', async (req, res) => {
       const getInfo = req.body;
       const result = await coffee.insertOne(getInfo);
       res.send(result)
     })
+
 
 
     // Send a ping to confirm a successful connection

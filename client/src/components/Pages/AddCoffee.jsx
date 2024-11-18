@@ -31,7 +31,8 @@ const AddCoffee = () => {
                         text: 'Coffee Successfully Added',
                         icon: 'success',
                         confirmButtonText: 'Ok'
-                    })
+                    });
+                    form.reset();
                 }
             })
 
