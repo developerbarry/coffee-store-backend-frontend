@@ -12,6 +12,7 @@ import UpdateCoffee from './components/Pages/UpdateCoffee.jsx';
 import Error from './components/Pages/Error.jsx';
 import SignUp from './components/Pages/SignUp.jsx';
 import Login from './components/Pages/Login.jsx';
+import AuthProvider from './providers/AuthProvider/AuthProvider.jsx';
 // import Home from './components/Pages/Home.jsx';
 
 const router = createBrowserRouter(
@@ -33,7 +34,7 @@ const router = createBrowserRouter(
         {
           path: 'update-coffee/:id/edit',
           element: <UpdateCoffee />,
-          loader: ({params}) => fetch(`http://localhost:5000/coffees/${params.id}`)
+          loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
         },
         {
           path: 'sign-up',
@@ -62,11 +63,13 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider
-      router={router}
-      future={{
-        v7_startTransition: true,
-      }}
-    />
+    <AuthProvider>
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+        }}
+      />
+    </AuthProvider>
   </StrictMode>,
 )
