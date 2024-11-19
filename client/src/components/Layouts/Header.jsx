@@ -24,9 +24,9 @@ const Header = () => {
                     info@example.com
                 </button>
                 <div className="sm:ml-auto text-white">
-                    <a className="text-white text-sm mr-1">Sign In</a>
+                    <Link to={'/log-in'} className="text-white text-sm mr-1">Sign In</Link>
                     /
-                    <a className="text-white text-sm ml-1">Sign Up</a>
+                    <Link to={'/sign-up'} className="text-white text-sm ml-1">Sign Up</Link>
                 </div>
             </section>
 

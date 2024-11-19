@@ -10,6 +10,8 @@ import AddCoffee from './components/Pages/AddCoffee.jsx';
 import Home from './components/Pages/Home.jsx';
 import UpdateCoffee from './components/Pages/UpdateCoffee.jsx';
 import Error from './components/Pages/Error.jsx';
+import SignUp from './components/Pages/SignUp.jsx';
+import Login from './components/Pages/Login.jsx';
 // import Home from './components/Pages/Home.jsx';
 
 const router = createBrowserRouter(
@@ -32,6 +34,14 @@ const router = createBrowserRouter(
           path: 'update-coffee/:id/edit',
           element: <UpdateCoffee />,
           loader: ({params}) => fetch(`http://localhost:5000/coffees/${params.id}`)
+        },
+        {
+          path: 'sign-up',
+          element: <SignUp />
+        },
+        {
+          path: 'log-in',
+          element: <Login />
         }
       ]
     },
