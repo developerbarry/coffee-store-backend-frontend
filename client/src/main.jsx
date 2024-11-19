@@ -9,12 +9,14 @@ import Root from './components/Root.jsx';
 import AddCoffee from './components/Pages/AddCoffee.jsx';
 import Home from './components/Pages/Home.jsx';
 import UpdateCoffee from './components/Pages/UpdateCoffee.jsx';
+import Error from './components/Pages/Error.jsx';
 // import Home from './components/Pages/Home.jsx';
 
 const router = createBrowserRouter(
   [
     {
       path: '/',
+      errorElement: <Error />,
       element: <Root />,
       children: [
         {
@@ -27,7 +29,7 @@ const router = createBrowserRouter(
           element: <AddCoffee />
         },
         {
-          path: 'update-coffee/:id',
+          path: 'update-coffee/:id/edit',
           element: <UpdateCoffee />,
           loader: ({params}) => fetch(`http://localhost:5000/coffees/${params.id}`)
         }
