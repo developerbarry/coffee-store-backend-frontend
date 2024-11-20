@@ -13,6 +13,7 @@ import Error from './components/Pages/Error.jsx';
 import SignUp from './components/Pages/SignUp.jsx';
 import Login from './components/Pages/Login.jsx';
 import AuthProvider from './providers/AuthProvider/AuthProvider.jsx';
+import Users from './components/Pages/Users.jsx';
 // import Home from './components/Pages/Home.jsx';
 
 const router = createBrowserRouter(
@@ -43,6 +44,11 @@ const router = createBrowserRouter(
         {
           path: 'log-in',
           element: <Login />
+        },
+        {
+          path: 'users',
+          element: <Users />,
+          loader: () => fetch('http://localhost:5000/users')
         }
       ]
     },

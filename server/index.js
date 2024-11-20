@@ -75,12 +75,18 @@ async function run() {
     })
 
 
+    // Users Stuff for DataBase
+
+    app.get('/users', async (req, res) => {
+      const cursor = users.find();
+      const result = await cursor.toArray();
+      res.send(result)
+    })
 
     app.post('/users', async (req, res) => {
       const userInfo = req.body;
       const result = await users.insertOne(userInfo);
       res.send(result)
-
 
     })
 

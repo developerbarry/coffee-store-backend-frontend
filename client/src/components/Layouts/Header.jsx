@@ -61,7 +61,7 @@ const Header = () => {
                         </li>
                         <li
                             className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-white lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[2px] lg:after:block lg:after:-bottom-4 lg:after:transition-all lg:after:duration-300'>
-                            <Link className='text-white block text-[15px] font-medium'>Tracking</Link>
+                            <Link to={'/users'} className='text-white block text-[15px] font-medium'>Users</Link>
                         </li>
                         <li
                             className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-white lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[2px] lg:after:block lg:after:-bottom-4 lg:after:transition-all lg:after:duration-300'>
