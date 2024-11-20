@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
 
@@ -16,6 +17,8 @@ const SignUp = () => {
             .then(userCredential => {
                 const user = userCredential.user;
                 console.log(user)
+                const metaData = userCredential.user.metadata;
+                const userInfo = { email, metaData };
             })
             .catch(error => {
                 console.error(error)
