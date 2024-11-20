@@ -19,6 +19,19 @@ const SignUp = () => {
                 console.log(user)
                 const metaData = userCredential.user.metadata;
                 const userInfo = { email, metaData };
+
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                       
+                    })
             })
             .catch(error => {
                 console.error(error)
