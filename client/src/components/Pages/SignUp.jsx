@@ -17,8 +17,9 @@ const SignUp = () => {
             .then(userCredential => {
                 const user = userCredential.user;
                 console.log(user)
-                const metaData = userCredential.user.metadata;
-                const userInfo = { email, metaData };
+                const creationTime = userCredential.user.metadata.creationTime;
+                const lastSignInTime = userCredential.user.metadata.lastSignInTime;
+                const userInfo = { email, creationTime, lastSignInTime };
 
                 fetch('http://localhost:5000/users', {
                     method: "POST",

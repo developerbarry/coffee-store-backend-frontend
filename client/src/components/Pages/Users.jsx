@@ -56,7 +56,7 @@ const Users = () => {
                                                 <th scope="col" className="text-xl font-medium text-gray-900 px-6 py-4 text-left">#</th>
                                                 <th scope="col" className="text-sm font-medium text-gray-900 px-6 font-rancho py-4 text-left">Email</th>
                                                 <th scope="col" className="text-xl font-medium text-gray-900 px-6 py-4 font-rancho text-left">CreatedAt</th>
-                                                <th scope="col" className="text-xl font-medium text-gray-900 px-6 py-4 font-rancho text-left">LastLoginAt</th>
+                                                <th scope="col" className="text-xl font-medium text-gray-900 px-6 py-4 font-rancho text-left">LastSignInTime</th>
                                                 <th scope="col" className="text-xl font-medium text-gray-900 px-6 py-4 font-rancho text-left">Delete</th>
                                             </tr>
                                         </thead>
@@ -66,8 +66,8 @@ const Users = () => {
                                                     <tr key={userData._id} className="border-b">
                                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{count += 1}</td>
                                                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{userData.email}</td>
-                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{userData.metaData.createdAt}</td>
-                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{userData.metaData.lastLoginAt}</td>
+                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{userData.creationTime}</td>
+                                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{userData.lastSignInTime}</td>
                                                         <td><button onClick={() => handleDeleteUser(userData._id)} className="bg-red-500 px-4 py-2 text-white">Remove</button></td>
                                                     </tr>
                                                 ))

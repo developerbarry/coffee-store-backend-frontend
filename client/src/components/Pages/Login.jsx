@@ -1,9 +1,88 @@
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
 
 const Login = () => {
+
+    const { signInUser } = useContext(AuthContext);
+
+    const handlesignIn = (e) => {
+        e.preventDefault()
+        const form = new FormData(e.currentTarget)
+        const email = form.get('email');
+        const password = form.get('password');
+
+        console.log(email, password)
+        signInUser(email, password)
+            .then(userCredential => {
+                const user = userCredential.user;
+                console.log(user)
+                const userStuff = {
+                    email,
+                    lastSignInTime: user.metadata.lastSignInTime
+
+                }
+                
+                fetch('http://localhost:5000/users', {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type" : "application/json"
+                    },
+                    body: JSON.stringify(userStuff)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+    }
+
+
     return (
-        <div>
-            <h1>this is log in page</h1>
-        </div>
+        <section className="bg-gray-100 flex min-h-[calc(100vh-105px)] md:py-10 items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-md space-y-8">
+                <div className="bg-white shadow-md rounded-md p-6">
+
+                    <img className="mx-auto h-12 w-auto" src="https://www.svgrepo.com/show/499664/user-happy.svg" alt="" />
+
+                    <h2 className="my-3 text-center text-3xl font-bold tracking-tight text-[#374151]">
+                        Sign In
+                    </h2>
+
+
+                    <form
+                        onClick={handlesignIn}
+                        className="space-y-6">
+
+                        <div>
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700 font-rancho text-xl">Email</label>
+                            <div className="mt-1">
+                                <input name="email" type="email" autoComplete="email-address" required
+                                    className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700 font-rancho text-xl">Password</label>
+                            <div className="mt-1">
+                                <input name="password" type="password" autoComplete="password" required
+                                    className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <button type="submit"
+                                className="flex w-full justify-center rounded-md border border-transparent font-rancho text-[#331A15] bg-[#E3B577] py-2 px-4 text-xl font-medium shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">Sign In
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     );
 };
 
