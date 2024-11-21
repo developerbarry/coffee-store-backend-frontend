@@ -21,7 +21,7 @@ const SignUp = () => {
                 const lastSignInTime = userCredential.user.metadata.lastSignInTime;
                 const userInfo = { email, creationTime, lastSignInTime };
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://server-liard-beta.vercel.app/users', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

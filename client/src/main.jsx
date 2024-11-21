@@ -26,7 +26,7 @@ const router = createBrowserRouter(
         {
           index: true,
           element: <Home />
-          // loader: () => fetch('http://localhost:5000/coffees')  //HydrateFallback error
+          // loader: () => fetch('https://server-liard-beta.vercel.app/coffees')  //HydrateFallback error
         },
         {
           path: 'add-coffee',
@@ -35,7 +35,7 @@ const router = createBrowserRouter(
         {
           path: 'update-coffee/:id/edit',
           element: <UpdateCoffee />,
-          loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
+          loader: ({ params }) => fetch(`https://server-liard-beta.vercel.app/coffees/${params.id}`)
         },
         {
           path: 'sign-up',
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
         {
           path: 'users',
           element: <Users />,
-          loader: () => fetch('http://localhost:5000/users')
+          loader: () => fetch('https://server-liard-beta.vercel.app/users')
         }
       ]
     },

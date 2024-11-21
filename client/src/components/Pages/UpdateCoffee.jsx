@@ -19,7 +19,7 @@ const UpdateCoffee = () => {
         const photoURL = form.photo.value;
         const updateCoffee = { coffeName, chef, supplier, taste, category, details, photoURL };
 
-        fetch(`http://localhost:5000/coffees/${_id}`, {
+        fetch(`https://server-liard-beta.vercel.app/coffees/${_id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"

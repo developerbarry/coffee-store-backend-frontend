@@ -7,7 +7,7 @@ const Home = () => {
     const [coffees, setCoffees] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/coffees')
+        fetch('https://server-liard-beta.vercel.app/coffees')
             .then(res => res.json())
             .then(data => setCoffees(data))
     }, [])

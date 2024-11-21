@@ -18,7 +18,7 @@ const AddCoffee = () => {
         const newCoffee = { coffeName, chef, supplier, taste, category, details, photoURL };
         console.log(newCoffee)
 
-        fetch('http://localhost:5000/coffees', {
+        fetch('https://server-liard-beta.vercel.app/coffees', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
