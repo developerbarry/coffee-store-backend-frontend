@@ -83,9 +83,9 @@ async function run() {
       res.send(result)
     })
 
-    app.get('/users/:id', async(req, res) => {
+    app.get('/users/:id', async (req, res) => {
       const id = req.params.id;
-      const query = {_id: new ObjectId(id)};
+      const query = { _id: new ObjectId(id) };
       const result = await users.findOne(query);
       res.send(result)
     })
@@ -95,6 +95,19 @@ async function run() {
       const result = await users.insertOne(userInfo);
       res.send(result)
 
+    })
+
+    app.patch('/users', async (req, res) => {
+      const userBody = req.body;
+      const filter = { email: userBody.email };
+      const updatedDoc = {
+        $set: {
+          lastSignInTime: userBody.lastSignInTime
+        }
+      };
+
+      const result = await users.updateOne(filter, updatedDoc);
+      res.send(result)
     })
 
     app.delete('/users/:id', async (req, res) => {

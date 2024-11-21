@@ -21,7 +21,7 @@ const Login = () => {
                     lastSignInTime: user.metadata.lastSignInTime
 
                 }
-                
+
                 fetch('http://localhost:5000/users', {
                     method: "PATCH",
                     headers: {
@@ -54,7 +54,7 @@ const Login = () => {
 
 
                     <form
-                        onClick={handlesignIn}
+                        onSubmit={handlesignIn}
                         className="space-y-6">
 
                         <div>
